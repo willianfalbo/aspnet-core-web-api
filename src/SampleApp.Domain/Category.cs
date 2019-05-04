@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace SampleApp.Domain
 {
     public class Category
@@ -5,6 +7,7 @@ namespace SampleApp.Domain
         public int Id { get; private set; }
         public string Name { get; private set; }
         public string Description { get; private set; }
+        public List<Product> Products { get; private set; }
 
         public Category(string name, string description)
         {
