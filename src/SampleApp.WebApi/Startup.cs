@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using SampleApp.DI;
+using SampleApp.WebApi.Filters;
 
 namespace SampleApp.WebApi
 {
@@ -29,7 +30,11 @@ namespace SampleApp.WebApi
             //dependency injection
             Boostrap.Configure(services, Configuration.GetConnectionString("DefaultConnection"));
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc(config =>
+            {
+                config.Filters.Add(typeof(CustomExceptionFilter));
+            })
+            .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

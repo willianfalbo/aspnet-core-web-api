@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "dotnet run -p src/SampleApp.WebApi/SampleApp.WebApi.csproj",
-    "watch-run": "cd src/SampleApp.WebApi && dotnet watch run",
-    "migration": "cd src/SampleApp.Data/ && dotnet ef --startup-project ../SampleApp.WebApi/SampleApp.WebApi.csproj migrations add",
-    "migration-remove": "cd src/SampleApp.Data/ && dotnet ef --startup-project ../SampleApp.WebApi/SampleApp.WebApi.csproj migrations remove",
-    "migration-update-db": "cd src/SampleApp.Data/ && dotnet ef --startup-project ../SampleApp.WebApi/SampleApp.WebApi.csproj database update"
+    "watch": "cd src/SampleApp.WebApi && dotnet watch run",
+    "migration:add": "cd src/SampleApp.Data/ && dotnet ef --startup-project ../SampleApp.WebApi/SampleApp.WebApi.csproj migrations add",
+    "migration:remove": "cd src/SampleApp.Data/ && dotnet ef --startup-project ../SampleApp.WebApi/SampleApp.WebApi.csproj migrations remove",
+    "migration:update": "cd src/SampleApp.Data/ && dotnet ef --startup-project ../SampleApp.WebApi/SampleApp.WebApi.csproj database update",
+    "migration:script": "cd src/SampleApp.Data/ && dotnet ef --startup-project ../SampleApp.WebApi/SampleApp.WebApi.csproj migrations script"
   },
   "repository": {
     "type": "git",

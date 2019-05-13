@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using SampleApp.WebApi.Models;
 
 namespace SampleApp.WebApi.Controllers
 {
@@ -15,6 +16,13 @@ namespace SampleApp.WebApi.Controllers
         public ActionResult<IEnumerable<string>> Get()
         {
             return new string[] { "value1", "value2" };
+        }
+
+        // GET api/values
+        [HttpGet("error")]
+        public ActionResult<IEnumerable<string>> GetWithError()
+        {
+            throw new Exception("ANY CUSTOM MESSAGE!");
         }
 
         // GET api/values/5
